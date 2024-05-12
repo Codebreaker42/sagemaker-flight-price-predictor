@@ -267,8 +267,8 @@ selector = SelectBySingleFeaturePerformance(
 # preprocessor
 preprocessor = Pipeline(steps=[("ct", column_transformer), ("selector", selector)])
 
-path = r"N:\ml-projects\regression\flight-price-prediction-using-sagemaker\datasets\train.csv"
-train = pd.read_csv(path)
+# path = r"N:\ml-projects\regression\flight-price-prediction-using-sagemaker\datasets\train.csv"
+train = pd.read_csv("datasets/train.csv")
 
 x_train = train.drop(columns=["price"])
 y_train = train.price.copy()
@@ -332,4 +332,4 @@ if st.button("Predict"):
     x_new_xgb=xgb.DMatrix(x_new_pre) #to make preprocessed data into xgboost model 
     pred=model.predict(x_new_xgb)[0] # returns the array of value but we need first value[0]
 
-    st.info(f"The Price is:{pred:,.0f} INR") #result in blue box
+    st.info(f"The Price is:  {pred:,.0f} INR") #result in blue box
