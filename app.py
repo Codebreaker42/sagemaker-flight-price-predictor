@@ -1,4 +1,5 @@
 import pickle
+import os
 import joblib
 import warnings
 import numpy as np
@@ -267,8 +268,8 @@ selector = SelectBySingleFeaturePerformance(
 # preprocessor
 preprocessor = Pipeline(steps=[("ct", column_transformer), ("selector", selector)])
 
-# path = r"N:\ml-projects\regression\flight-price-prediction-using-sagemaker\datasets\train.csv"
-train = pd.read_csv(r"datasets\train.csv")
+path = r"N:\ml-projects\regression\flight-price-prediction-using-sagemaker\datasets"
+train = pd.read_csv(os.path.join(path,"train.csv"))
 
 x_train = train.drop(columns=["price"])
 y_train = train.price.copy()
