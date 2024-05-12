@@ -268,8 +268,7 @@ selector = SelectBySingleFeaturePerformance(
 # preprocessor
 preprocessor = Pipeline(steps=[("ct", column_transformer), ("selector", selector)])
 
-path = r"N:\ml-projects\regression\flight-price-prediction-using-sagemaker\datasets"
-train = pd.read_csv(os.path.join(path,"train.csv"))
+train = pd.read_csv("train.csv")
 
 x_train = train.drop(columns=["price"])
 y_train = train.price.copy()
